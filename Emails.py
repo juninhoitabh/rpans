@@ -24,6 +24,7 @@ def enviaEmail(destinatario, assunto, mensagem):
     server.starttls()
     server.login(user, password)
 
+
     # Criando mensagem
     message = str(mensagem)
     # print('Criando mensagem...')
