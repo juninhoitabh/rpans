@@ -2,6 +2,7 @@ import pyautogui as p
 # import rpa as r
 # import smtplib
 # import Emails as e
+import datetime as d
 
 
 def logaSistema(sistema, operador, senha):  # Abre o sistema e faz Login
@@ -48,5 +49,17 @@ def posicaoSubmenu(menu, submenu):  # Retorna as coordenadas do item no submenu 
     horizontal, verticalMenu = posicaoMenu(menu)
     return horizontal, vertical
 
+#encerra o módulo do Sistema
+def fecharModulo(modulo):
+    p.hotkey('win','r')
+    p.typewrite('taskkill /f /fi "imagename eq '+str(modulo)+'.exe"')
+    p.press('enter')
+
+
+#Retorna uma string com o dia e a hora sem caracteres especiais
+def dataHora():
+    nome = str(d.datetime.now().day)+'-'+str(d.datetime.now().month)+'-'+str(d.datetime.now().year)+'-'
+    nome = nome + str(d.datetime.now().hour)+str(d.datetime.now().minute)+str(d.datetime.now().second)
+    return (nome)
 # p.sleep(2)
 # print(p.position())

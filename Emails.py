@@ -34,7 +34,7 @@ def enviaEmail(destinatario, assunto, mensagem):
     email_msg['Subject'] = str(assunto)
     email_msg.attach(MIMEText(message))
     # Adicionando imagem Anexo
-    with open('telaErro.png', 'rb') as fp:
+    with open('imagens/telaErro.png', 'rb') as fp:
         img = MIMEImage(fp.read())
         img.add_header('Content-Disposition', 'attachment', filename="telaErro.png")
         email_msg.attach(img)
