@@ -70,7 +70,7 @@ while contador < planilha.nrows:
         p.sleep(1)
         e.enviaEmail(emailResponsavel, assuntoErro, m.erroFilial(contador))
         testeData = None
-        registro['Status'].append('Erro')
+        registro['Status'].append('Erro na Filial')
     else:
         p.press('tab')
         p.typewrite(str(comprador))
@@ -85,7 +85,7 @@ while contador < planilha.nrows:
             p.sleep(1)
             e.enviaEmail(emailResponsavel, assuntoErro, m.erroCNPJ(contador))
             testeData = None
-            registro['Status'].append('Erro')
+            registro['Status'].append('Erro no CNPJ')
         else:
             p.sleep(2)
             p.click(x=736, y=360)  # clica na aba produto
@@ -99,7 +99,7 @@ while contador < planilha.nrows:
                 p.sleep(1)
                 e.enviaEmail(emailResponsavel, assuntoErro, m.erroProduto(contador))
                 testeData = None
-                registro['Status'].append('Erro')
+                registro['Status'].append('Erro no Produto')
             else:
                 p.typewrite(entrega)
                 p.press('tab')
@@ -111,7 +111,7 @@ while contador < planilha.nrows:
                     p.sleep(1)
                     e.enviaEmail(emailResponsavel, assuntoErro, m.erroData(contador))
                     testeData = None
-                    registro['Status'].append('Erro')
+                    registro['Status'].append('Erro na Data de entrega')
                 else:
                     p.typewrite(marca)
                     p.sleep(1)
@@ -141,7 +141,7 @@ while contador < planilha.nrows:
                         p.sleep(1)
                         e.enviaEmail(emailResponsavel, assuntoErro, m.erroFornecedor(contador))
                         testeData = None
-                        registro['Status'].append('Erro')
+                        registro['Status'].append('Erro no Fornecedor')
                     else:
                         # p.click(x=1054, y=370)#sair da mensagem de inconsistencia
                         # e.EnviaEmail(emailResponsavel,assuntoErro,mensagemErro)
