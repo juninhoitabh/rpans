@@ -3,18 +3,15 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
-
-# Configuração
-
+from dotenv import load_dotenv # Configuração das variaveis de ambient
+import os #manipular variaveis de ambiente
 
 def enviaEmail(destinatario, assunto, mensagem):
-
-    host = 'mail.nsabor.com.br'
+    load_dotenv()
+    host = os.getenv("HOST")
     port = 587
-    user = 'teknisa@nsabor.com.br'
-    password = 'Tek1648'
-
-    # Criando objeto
+    user = os.getenv("MAIL_USER")
+    password = os.getenv("PASS_EMAIL")     # Criando objeto
     # print('Criando objeto servidor...')
     server = smtplib.SMTP(host, port)
 

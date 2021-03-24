@@ -190,5 +190,5 @@ def calculaPreviaNecessidade(filial, data_inicial, data_final, produto_inicial, 
     p.click(x=952, y=441)
     p.sleep(1)
     p.press('enter')
-p.sleep(3)
-print(p.position())
+# p.sleep(3)
+# print(p.position())

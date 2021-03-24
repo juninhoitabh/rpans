@@ -5,16 +5,20 @@ import pandas as pd
 import xlrd
 import Emails as e
 import MensagensErro as m
+from dotenv import load_dotenv # Configuração das variaveis de ambient
+import os #manipular variaveis de ambiente
+
 
 # Inicialização de váriáveis
 arquivo = xlrd.open_workbook('dados.xls')  # importa o arquivo com os dados
 planilha = arquivo.sheet_by_index(0)  # extrai a planilha do arquivo para uma variável
-
+load_dotenv() #Starta variaveis de ambiente
+p.FAILSAFE = False #impede o robo de parar por crash
 # Dados para o envio de email
-emailResponsavel = 'pci2@nsabor.com.br'
+emailResponsavel = os.getenv("EMAIL")
 assuntoErro = 'Problema com AF manual'
 
-contador = 1  # controle para a repetição iniciado na primeira linha da tabela
+contador = 1  #controle para a repetição iniciado na primeira linha da tabela
 
 # Arquivo de saída
 registro = {'Fornecedor': [],
@@ -50,7 +54,7 @@ while contador < planilha.nrows:
     justificativa = 'AF gerada automaticamente BOT'
     # print(justificativa)
     # Abertura do sistema
-    f.logaSistema('SUP', '0026', 'ren0504')
+    f.logaSistema('SUP',os.getenv("FILIAL"), os.getenv("PASS_TEK"))
     p.click(f.posicaoMenu(3))
     p.sleep(1)
     p.click(f.posicaoSubmenu(3, 1))
